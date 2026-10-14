@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JobTrack Verification Gate</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="popup-container">
+    <!-- Header -->
+    <header class="header">
+      <div class="brand">
+        <span class="logo">⚡</span>
+        <h1>JobTrack</h1>
+      </div>
+      <div id="confidenceBadge" class="confidence-badge badge-high" title="Overall extraction confidence score">
+        Confidence: 95%
+      </div>
+    </header>
+
+    <!-- Verification Alert Banner -->
+    <div class="info-banner">
+      <span>Verify details before saving to your tracker.</span>
+    </div>
+
+    <!-- Pre-filled Form -->
+    <form id="jobForm" class="job-form">
+      <div class="form-group">
+        <label for="jobTitle">Job Title <span class="required">*</span></label>
+        <div class="input-wrapper">
+          <input type="text" id="jobTitle" required placeholder="e.g. Senior Frontend Engineer">
+          <span id="titleBadge" class="field-score">95%</span>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="companyName">Company Name <span class="required">*</span></label>
+        <div class="input-wrapper">
+          <input type="text" id="companyName" required placeholder="e.g. Stripe">
+          <span id="companyBadge" class="field-score">95%</span>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group half">
+          <label for="location">Location</label>
+          <div class="input-wrapper">
+            <input type="text" id="location" placeholder="e.g. Remote, SF">
+            <span id="locationBadge" class="field-score">90%</span>
+          </div>
+        </div>
+
+        <div class="form-group half">
+          <label for="salary">Salary</label>
+          <div class="input-wrapper">
+            <input type="text" id="salary" placeholder="e.g. $120k - $150k">
+            <span id="salaryBadge" class="field-score">80%</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="jobUrl">Job Page Link <span class="required">*</span></label>
+        <div class="input-wrapper">
+          <input type="url" id="jobUrl" required placeholder="https://...">
+          <span class="field-score verified-score">100%</span>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group half">
+          <label for="appliedDate">Applied Date <span class="required">*</span></label>
+          <div class="input-wrapper">
+            <input type="date" id="appliedDate" required>
+          </div>
+        </div>
+
+        <div class="form-group half">
+          <label for="status">Status</label>
+          <select id="status">
+            <option value="Wishlist">📌 Wishlist</option>
+            <option value="Applied" selected>📝 Applied</option>
+            <option value="Screening">📞 Screening</option>
+            <option value="Interviewing">🎯 Interviewing</option>
+            <option value="Offer">🏆 Offer</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="jobType">Job Type</label>
+        <select id="jobType">
+          <option value="Full-Time" selected>Full-Time</option>
+          <option value="Part-Time">Part-Time</option>
+          <option value="Contract">Contract</option>
+          <option value="Internship">Internship</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="notes">Notes</label>
+        <textarea id="notes" rows="2" placeholder="Add custom notes, referral details, tech stack..."></textarea>
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="actions">
+        <button type="button" id="cancelBtn" class="btn btn-secondary">Cancel</button>
+        <button type="submit" id="saveBtn" class="btn btn-primary">
+          <span>💾 Save Application</span>
+        </button>
+      </div>
+    </form>
+
+    <!-- Success Toast -->
+    <div id="toast" class="toast hidden">
+      <span>✅ Application saved successfully!</span>
+    </div>
+  </div>
+
+  <script type="module" src="popup.js"></script>
+</body>
+</html>
